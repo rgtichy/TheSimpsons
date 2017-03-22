@@ -1,0 +1,25 @@
+<h1>Characters#edit</h1>
+<p>Find me in app/views/characters/edit.html.erb</p>
+  <form method='POST' action="/characters/<%=@character.id%>">
+    <input type='hidden' name='authenticity_token' value="<%=form_authenticity_token%>" />
+    <!-- <div class='row'> -->
+      <div class='form-group'>
+        <label class='col-md-1'>First:</label>
+        <input class='col-md-2' name='character[first_name]' type='text' placeholder="first name" value="<%=@character.first_name%>"/>
+      </div>
+      <div class='form-group'>
+        <label class='col-md-1'>Last:</label>
+        <input class='col-md-2' name='character[last_name]'  type='text' placeholder="last name"  value="<%=@character.last_name%>" />
+      </div>
+      <div class='form-group'>
+        <label class='col-md-1'>Works at:</label>
+        <input class='col-md-2' name='character[workplace]' type='text' placeholder="workplace" value="<%=@character.workplace%>"/>
+      </div>
+    <!-- </div> -->
+    <!-- <div class='row'> -->
+      <!-- <div class='form-group'> -->
+        <a class='btn btn-primary' href="/characters/<%=@character.id%>">Cancel</a>
+        <button class='btn btn-success' type='submit'>Update</button>
+      <!-- </div> -->
+    <!-- </div> -->
+  </form>

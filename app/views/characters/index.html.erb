@@ -10,7 +10,9 @@
     <th class='col-md-2'>Actions</th>
   </tr>
   <% @characters.each do |c| %>
-  <tr><td class='col-md-2'><%=c.first_name%></td>
+  <tr>
+    <!-- <td class='col-md-2'><a><%=c.first_name%></a></td> -->
+    <td class='col-md-2'><a href="characters/<%=c.id%>"><%=c.first_name%></a></td>
     <td class='col-md-2'><%=c.last_name%></td>
     <td class='col-md-2'><%=c.workplace%></td>
     <td class='col-md-2'>

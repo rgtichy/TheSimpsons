@@ -13,16 +13,21 @@ class CharactersController < ApplicationController
   def show
     @character=Character.find(params[:id])
   end
+
+  def edit
+    @character=Character.find(params[:id])
+  end
+  
   def create
-    Character.create(sanitized_character)
+    Character.create(character_permits)
     redirect_to "/"
   end
   def destroy
-    z = Character.find(params[:id])
-    z.delete
+    z = Character.find(params[:id]).delete
     redirect_to action: "index"
   end
-  def sanitized_character
-    return params.require(:character).permit(:first_name, :last_name, :workplace)
-  end
+  private
+    def character_permits
+      return params.require(:character).permit(:first_name, :last_name, :workplace)
+    end
 end

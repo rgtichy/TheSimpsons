@@ -1,0 +1,9 @@
+<h1><%=@character.last_name%>, <%=@character.first_name%></h1>
+<p>
+  <%=@character.first_name%> <%=@character.last_name%> works at <%=@character.workplace%>
+</p>
+<div class='row'>
+  <a class="btn btn-primary col-md-1 col-md-offset-1" href="/characters">Cancel</a>
+  <a class="btn btn-primary col-md-offset-1" href="/characters/<%=@character.id%>/edit">Edit Character</a>
+  <a class="btn btn-danger col-md-offset-1" data-method="DELETE" href="characters/<%=@character.id%>">Delete Character</a>
+</div>
