@@ -1,0 +1,9 @@
+<h1>Characters#new</h1>
+<p>Find me in app/views/characters/new.html.erb</p>
+<form method='POST' action="/characters">
+  <input type='hidden' name='authenticity_token' value="<%=form_authenticity_token%>" />
+  <input name='character[first_name]' type='text' placeholder="first name"/>
+  <input name='character[last_name]' type='text' placeholder="last name"/>
+  <input name='character[workplace]' type='text' placeholder="workplace"/>
+  <button class='btn' type='submit'>Add</button>
+</form>
