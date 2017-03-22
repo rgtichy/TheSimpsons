@@ -17,7 +17,11 @@ class CharactersController < ApplicationController
   def edit
     @character=Character.find(params[:id])
   end
-  
+  def update
+    character=Character.find(params[:id])
+    character.update(character_permits)
+    redirect_to action: "index"
+  end
   def create
     Character.create(character_permits)
     redirect_to "/"
