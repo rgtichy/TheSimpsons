@@ -1,25 +1,30 @@
-<h1>Characters#edit</h1>
-<p>Find me in app/views/characters/edit.html.erb</p>
+<% content_for :right do %>
+<h1>Edit</h1>
+<h3><%=@character.name%></h3>
   <form method='POST' action="/characters/<%=@character.id%>">
     <input type='hidden' name='authenticity_token' value="<%=form_authenticity_token%>" />
-    <!-- <div class='row'> -->
-      <div class='form-group'>
-        <label class='col-md-1'>First:</label>
-        <input class='col-md-2' name='character[first_name]' type='text' placeholder="first name" value="<%=@character.first_name%>"/>
-      </div>
-      <div class='form-group'>
-        <label class='col-md-1'>Last:</label>
-        <input class='col-md-2' name='character[last_name]'  type='text' placeholder="last name"  value="<%=@character.last_name%>" />
-      </div>
-      <div class='form-group'>
-        <label class='col-md-1'>Works at:</label>
-        <input class='col-md-2' name='character[workplace]' type='text' placeholder="workplace" value="<%=@character.workplace%>"/>
-      </div>
-    <!-- </div> -->
-    <!-- <div class='row'> -->
-      <!-- <div class='form-group'> -->
-        <a class='btn btn-primary' href="/characters/<%=@character.id%>">Cancel</a>
-        <button class='btn btn-success' type='submit'>Update</button>
-      <!-- </div> -->
-    <!-- </div> -->
+    <div class='form-group'>
+      <label >First:</label>
+      <input  name='character[first_name]' type='text' placeholder="first name" value="<%=@character.first_name%>"/>
+    </div>
+    <div class='form-group'>
+      <label >Last:</label>
+      <input  name='character[last_name]'  type='text' placeholder="last name"  value="<%=@character.last_name%>" />
+    </div>
+    <div class='form-group'>
+      <label >Works at:</label>
+      <input  name='character[workplace]' type='text' placeholder="workplace" value="<%=@character.workplace%>"/>
+    </div>
+    <a class='btn btn-primary' href="/characters/<%=@character.id%>">Cancel</a>
+    <button class='btn btn-success' type='submit'>Update</button>
   </form>
+<% end %>
+<% content_for :left do %>
+<h1>Info</h1>
+<h3><%=@character.name%></h3>
+<!-- <p>Find me in app/views/characters/edit.html.erb</p> -->
+  <p>First: <%=@character.first_name%></p>
+  <p>Last: <%=@character.last_name%></p>
+  <p>Nickname: <%=@character.nickname%></p>
+  <p>Works at: <%=@character.workplace%></p>
+<% end %>

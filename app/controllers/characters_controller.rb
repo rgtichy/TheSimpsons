@@ -1,21 +1,19 @@
 class CharactersController < ApplicationController
-  # self.per_form_csrf_tokens = true
+  self.per_form_csrf_tokens = true
   def index
     @greetings = ["Eat my shorts!","Cowabunga!","Get bent!"]
-    @greeting = @greetings[rand(0..2)]
+    @greeting = @greetings[rand(0..@greetings.length-1)]
     @characters = Character.all
   end
-
   def new
     @character=Character.new
   end
-
   def show
     @character=Character.find(params[:id])
   end
-
   def edit
     @character=Character.find(params[:id])
+    render layout:"two_cols"
   end
   def update
     character=Character.find(params[:id])
@@ -32,6 +30,6 @@ class CharactersController < ApplicationController
   end
   private
     def character_permits
-      return params.require(:character).permit(:first_name, :last_name, :workplace)
+      return params.require(:character).permit(:first_name, :last_name, :workplace, :nickname)
     end
 end
