@@ -2,6 +2,13 @@
 <p>
   <%=@character.first_name%> <%=@character.last_name%> works at <%=@character.workplace%>
 </p>
+<ul><p><b>Family Members include:</b></p>
+  <% @family.each do |f| %>
+  <li>
+    <%= f.name %>
+  </li>
+  <% end %>
+</ul>
 <div class='row'>
   <a class="btn btn-primary col-md-1 col-md-offset-1" href="/characters">Cancel</a>
   <a class="btn btn-primary col-md-offset-1" href="/characters/<%=@character.id%>/edit">Edit Character</a>

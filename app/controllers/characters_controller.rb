@@ -10,6 +10,7 @@ class CharactersController < ApplicationController
   end
   def show
     @character=Character.find(params[:id])
+    family 
   end
   def edit
     @character=Character.find(params[:id])
@@ -27,6 +28,9 @@ class CharactersController < ApplicationController
   def destroy
     z = Character.find(params[:id]).delete
     redirect_to action: "index"
+  end
+  def family
+    @family = @character.family_members
   end
   private
     def character_permits
